@@ -174,3 +174,43 @@ invertSignButton.addEventListener('click', () => {
   calculator.invertSign();
   calculator.updateDisplay();
 });
+
+document.addEventListener('keydown', (event) => {
+  const key = event.key;
+
+  // Check if the pressed key is a number or a decimal point
+  if (!isNaN(key) || key === '.') {
+    calculator.appendNumber(key);
+    calculator.updateDisplay();
+  }
+
+  // Check if the pressed key is an operation
+  if (['+', '-', '*', '/'].includes(key)) {
+    calculator.chooseOperation(key);
+    calculator.updateDisplay();
+  }
+
+  // Check if the pressed key is the equals sign
+  if (key === '=' || key === 'Enter') {
+    calculator.compute();
+    calculator.updateDisplay();
+  }
+
+  // Check if the pressed key is the Delete key
+  if (key === 'Delete') {
+    calculator.clear();
+    calculator.updateDisplay();
+  }
+
+  // Check if the pressed key is the Backspace key
+  if (key === 'Backspace') {
+    calculator.delete();
+    calculator.updateDisplay();
+  }
+
+  // Check if the pressed key is the +/- key
+  if (key === '-') {
+    calculator.invertSign();
+    calculator.updateDisplay();
+  }
+});

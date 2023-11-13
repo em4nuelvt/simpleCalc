@@ -178,6 +178,7 @@ invertSignButton.addEventListener('click', () => {
   calculator.updateDisplay();
 });
 
+
 document.addEventListener('keydown', (event) => {
   const key = event.key;
 

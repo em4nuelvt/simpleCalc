@@ -22,6 +22,9 @@ class Calculator {
   }
 
   chooseOperation(operation) {
+    if (operation === '/'||operation === ':') {
+      operation = '÷'; // SubstituIR por "÷"
+    }  
     if (this.currentOperand === '') return
     if (this.previousOperand !== '') {
       this.compute()
@@ -178,37 +181,37 @@ invertSignButton.addEventListener('click', () => {
 document.addEventListener('keydown', (event) => {
   const key = event.key;
 
-  // Check if the pressed key is a number or a decimal point
+  // verifica o ponto decimal 
   if (!isNaN(key) || key === '.') {
     calculator.appendNumber(key);
     calculator.updateDisplay();
   }
 
-  // Check if the pressed key is an operation
-  if (['+', '-', '*', '/'].includes(key)) {
+  // verifica a operação  
+  if (['+', '-', '*', '/',':'].includes(key)) {
     calculator.chooseOperation(key);
     calculator.updateDisplay();
   }
 
-  // Check if the pressed key is the equals sign
+  // apllicar operação
   if (key === '=' || key === 'Enter') {
     calculator.compute();
     calculator.updateDisplay();
   }
 
-  // Check if the pressed key is the Delete key
+  // limpa 
   if (key === 'Delete') {
     calculator.clear();
     calculator.updateDisplay();
   }
 
-  // Check if the pressed key is the Backspace key
+  // apaga
   if (key === 'Backspace') {
     calculator.delete();
     calculator.updateDisplay();
   }
 
-  // Check if the pressed key is the +/- key
+  // inverte sinal
   if (key === '-') {
     calculator.invertSign();
     calculator.updateDisplay();

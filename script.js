@@ -219,20 +219,20 @@ document.addEventListener('keydown', (event) => {
   }
 
     // operações de memória
-    if (key === 'w') {
-      calculator.addToMemory();
-      calculator.updateDisplay();
-    }
-  
-    if (key === 'e') {
-      calculator.subtractFromMemory();
-      calculator.updateDisplay();
-    }
-  
-    if (key === 'r') {
-      calculator.recallMemory();
-      calculator.updateDisplay();
-    }   
+  if (key === 'w') {
+    calculator.addToMemory();
+    calculator.updateDisplay();
+  }
+
+  if (key === 'e') {
+    calculator.subtractFromMemory();
+    calculator.updateDisplay();
+  }
+
+  if (key === 'r') {
+    calculator.recallMemory();
+    calculator.updateDisplay();
+  }   
 
 
 });
